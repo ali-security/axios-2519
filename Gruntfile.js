@@ -58,10 +58,7 @@ module.exports = function(grunt) {
         configFile: 'karma.conf.js'
       },
       single: {
-        singleRun: true,
-        options: {
-          force: true  // This will ensure that errors in the karma task don't stop the build.
-        }
+        singleRun: true
       },
       continuous: {
         singleRun: false
