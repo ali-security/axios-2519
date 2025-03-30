@@ -89,12 +89,15 @@ describe('options', function () {
     });
 
     instance.get('http://someotherurl.com/');
+    
 
     getAjaxRequest().then(function (request) {
       expect(request.url).toBe('http://someurl.com/http://someotherurl.com/');
       done();
-    });
-
+    }).catch(function (error) {
+      console.error('Error in getAjaxRequest:', error); // Log any errors
+      done.fail(error);
+    });    
   });
 
   it('should change only the baseURL of the specified instance', function() {
