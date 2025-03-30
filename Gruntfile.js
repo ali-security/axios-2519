@@ -58,7 +58,10 @@ module.exports = function(grunt) {
         configFile: 'karma.conf.js'
       },
       single: {
-        singleRun: true
+        singleRun: true,
+        options: {
+          force: true  // This will ensure that errors in the karma task don't stop the build.
+        }
       },
       continuous: {
         singleRun: false
@@ -93,7 +96,7 @@ module.exports = function(grunt) {
     var bower = grunt.file.readJSON('bower.json');
     var fields = this.data.fields || [];
 
-    for (var i=0, l=fields.length; i<l; i++) {
+    for (var i=0, l=fields.length; i<l; i++) {ƒ
       var field = fields[i];
       bower[field] = npm[field];
     }
